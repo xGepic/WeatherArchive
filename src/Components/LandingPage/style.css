@@ -1,0 +1,16 @@
+html {
+  background-color: #a3ffb4;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#titeldiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 400px;
+}
+
+#titel {
+  font-size: 40px;
+}
