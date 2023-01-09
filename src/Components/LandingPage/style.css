@@ -12,5 +12,24 @@ html {
 }
 
 #titel {
+  font-size: 60px;
+}
+
+#searchBarDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+#search-bar {
   font-size: 40px;
+  width: 25%;
+  height: 40px;
+  border-radius: 10px;
+}
+
+#searchButton {
+  font-size: 40px;
+  border-radius: 10px;
 }
