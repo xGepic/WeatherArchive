@@ -5,6 +5,10 @@ import "./style.css";
 const LandingPage = () => {
   const [searchInput, getSearchInput] = useState("");
 
+  const MakeLamdaCall = () => {
+    alert(searchInput);
+  };
+
   return (
     <>
       <div id="titeldiv">
@@ -20,11 +24,7 @@ const LandingPage = () => {
             value={searchInput}
             onChange={(e) => getSearchInput(e.target.value)}
           />
-          <button
-            type="submit"
-            id="searchButton"
-            onClick={() => alert(searchInput)}
-          >
+          <button type="submit" id="searchButton" onClick={MakeLamdaCall}>
             Search
           </button>
         </form>
