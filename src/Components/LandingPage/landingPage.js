@@ -1,37 +1,34 @@
 import React from "react";
+import { useState } from "react";
 import "./style.css";
 
-const Titel = () => {
-  return (
-    <div id="titeldiv">
-      <h1 id="titel">Weather Archive</h1>
-    </div>
-  );
-};
-
-const Searchbar = () => {
-  return (
-    <div id="searchBarDiv">
-      <form action="/" method="get">
-        <input
-          type="text"
-          id="search-bar"
-          placeholder="Search the Archive"
-          name="s"
-        />
-        <button type="submit" id="searchButton">
-          Search
-        </button>
-      </form>
-    </div>
-  );
-};
-
 const LandingPage = () => {
+  const [searchInput, getSearchInput] = useState("");
+
   return (
     <>
-      <Titel></Titel>
-      <Searchbar></Searchbar>
+      <div id="titeldiv">
+        <h1 id="titel">Weather Archive</h1>
+      </div>
+      <div id="searchBarDiv">
+        <form action="/" method="get">
+          <input
+            type="text"
+            id="search-bar"
+            placeholder="Search the Archive"
+            name="s"
+            value={searchInput}
+            onChange={(e) => getSearchInput(e.target.value)}
+          />
+          <button
+            type="submit"
+            id="searchButton"
+            onClick={() => alert(searchInput)}
+          >
+            Search
+          </button>
+        </form>
+      </div>
     </>
   );
 };
