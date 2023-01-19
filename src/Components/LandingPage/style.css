@@ -33,3 +33,7 @@ html {
   font-size: 40px;
   border-radius: 10px;
 }
+
+#searchButton:hover {
+  opacity: 0.8;
+}
