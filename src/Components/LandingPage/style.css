@@ -37,3 +37,11 @@ html {
 #searchButton:hover {
   opacity: 0.8;
 }
+
+#imageDIV {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10%;
+}
