@@ -8,29 +8,33 @@ html {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  height: 400px;
+  height: 300px;
 }
 
 #titel {
   font-size: 60px;
 }
 
-#searchBarDiv {
+#wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  text-align: center;
+  align-items: center;
+}
+
+#searchBarDiv,
+#buttonDiv {
+  display: flex;
+  flex-direction: row;
 }
 
 #search-bar {
   font-size: 40px;
-  width: 25%;
   height: 40px;
   border-radius: 10px;
 }
 
 #searchButton {
-  font-size: 40px;
+  font-size: 35px;
   border-radius: 10px;
 }
 
@@ -38,10 +42,9 @@ html {
   opacity: 0.8;
 }
 
-#imageDIV {
+#imgDiv {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  margin-top: 10%;
+  align-items: center;
+  margin-top: 5%;
 }
