@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LandingPage from "./Components/LandingPage/landingPage";
 import VideoPage from "./Components/VideoPage/videoPage";
 
-function App() {
+function Routing() {
   return (
     <Router>
       <Routes>
@@ -13,4 +13,4 @@ function App() {
   );
 }
 
-export default App;
+export default Routing;
