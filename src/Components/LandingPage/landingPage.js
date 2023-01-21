@@ -62,7 +62,7 @@ const LandingPage = () => {
             )}
           </div>
           <div>
-            <Link to="/about">
+            <Link to="/video">
               <button id="videoPageButton">Video</button>
             </Link>
           </div>

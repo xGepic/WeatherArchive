@@ -1,6 +1,17 @@
-//import React from "react";
-import "./style.css";
+import React from "react";
+import "./videoStyles.css";
 
-const VideoPage = () => {};
+const VideoPage = () => {
+  function RenderPage() {
+    return (
+      <div>
+        <div>
+          <h1>Video Page</h1>
+        </div>
+      </div>
+    );
+  }
+  return RenderPage();
+};
 
 export default VideoPage;
