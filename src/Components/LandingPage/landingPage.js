@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 const LandingPage = () => {
@@ -59,6 +60,11 @@ const LandingPage = () => {
                 <img src={imageSrc} alt="Img from API" />
               </div>
             )}
+          </div>
+          <div>
+            <Link to="/about">
+              <button id="videoPageButton">Video</button>
+            </Link>
           </div>
         </div>
       </div>

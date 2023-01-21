@@ -6,7 +6,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<LandingPage />} />
+        <Route path="/" exact element={<LandingPage />} />
         <Route path="/video" element={<VideoPage />} />
       </Routes>
     </Router>
