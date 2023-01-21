@@ -5,8 +5,8 @@ const VideoPage = () => {
   function RenderPage() {
     return (
       <div>
-        <div>
-          <h1>Video Page</h1>
+        <div id="videoTitleDiv">
+          <h1 id="videoTitle">Video Page</h1>
         </div>
       </div>
     );
