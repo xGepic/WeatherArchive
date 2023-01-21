@@ -56,7 +56,7 @@ const LandingPage = () => {
           <div id="imgDiv">
             {imageSrc && (
               <div>
-                <img src={imageSrc} alt="Image from API" />
+                <img src={imageSrc} alt="Img from API" />
               </div>
             )}
           </div>
