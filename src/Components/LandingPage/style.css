@@ -38,13 +38,6 @@
   cursor: pointer;
 }
 
-#imgDiv {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 5%;
-}
-
 #videoPageButton {
   position: fixed;
   width: 50px;
