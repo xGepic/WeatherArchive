@@ -1,8 +1,8 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import "./imageStyle.css";
+import "./videoResultsStyle.css";
 
-const ImagePage = () => {
+const VideoResultsPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -24,4 +24,4 @@ const ImagePage = () => {
   );
 };
 
-export default ImagePage;
+export default VideoResultsPage;
