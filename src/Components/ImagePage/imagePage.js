@@ -2,9 +2,14 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import "./imageStyle.css";
 
-const ImagePage = (props) => {
+const ImagePage = () => {
   const location = useLocation();
-  return <h1>{location.state.name}</h1>;
+
+  return (
+    <div id="titeldiv">
+      <h1 id="seachInput">{location.state}</h1>
+    </div>
+  );
 };
 
 export default ImagePage;

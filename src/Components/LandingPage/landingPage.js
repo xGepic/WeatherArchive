@@ -1,19 +1,13 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
 
 const LandingPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [images, setImages] = useState([]);
+  const navigate = useNavigate();
 
-  const handleSearch = async () => {
-    const response = await axios.get(`https://your-api-endpoint.com`, {
-      params: {
-        search: searchTerm,
-      },
-    });
-    setImages(response.data);
+  const toImageComponent = () => {
+    navigate("/image", { state: searchTerm });
   };
 
   return (
@@ -31,19 +25,10 @@ const LandingPage = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <div id="buttonDiv">
-            <button onClick={handleSearch} id="searchButton">
+            <button id="searchButton" onClick={toImageComponent}>
               Search
             </button>
           </div>
-        </div>
-        <div id="imgDiv">
-          {images.map((image) => (
-            <img
-              key={image.id}
-              src={`data:${image.mimetype};base64, ${image.data}`}
-              alt={image.description}
-            />
-          ))}
         </div>
         <div>
           <Link to="/video">
