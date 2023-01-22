@@ -10,18 +10,21 @@ const VideoResultsPage = () => {
     navigate("/");
   };
 
-  return (
-    <div>
-      <div id="titeldiv">
-        <h1 id="seachInput">{location.state}</h1>
-      </div>
+  function RenderPage() {
+    return (
       <div>
-        <button id="GoBackButton" onClick={goBackButton}>
-          Go Back
-        </button>
+        <div id="titeldiv">
+          <h1 id="seachInput">{location.state}</h1>
+        </div>
+        <div>
+          <button id="GoBackButton" onClick={goBackButton}>
+            Go Back
+          </button>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+  return RenderPage();
 };
 
 export default VideoResultsPage;
