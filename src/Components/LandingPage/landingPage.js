@@ -7,6 +7,10 @@ const LandingPage = () => {
   const navigate = useNavigate();
 
   const toImageComponent = () => {
+    if (searchTerm.trim().length === 0) {
+      alert("Please enter a Search Term!");
+      return;
+    }
     navigate("/image", { state: searchTerm });
   };
 
