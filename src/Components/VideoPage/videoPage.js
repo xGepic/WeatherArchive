@@ -7,14 +7,14 @@ const VideoPage = () => {
   const navigate = useNavigate();
 
   const goBackButton = () => {
-    if (videoSearchTerm.trim().length === 0) {
-      alert("Please enter a Search Term!");
-      return;
-    }
     navigate("/");
   };
 
   const toVideoResultsComponent = () => {
+    if (videoSearchTerm.trim().length === 0) {
+      alert("Please enter a Search Term!");
+      return;
+    }
     navigate("/videoResults", { state: videoSearchTerm });
   };
 
