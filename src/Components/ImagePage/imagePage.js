@@ -8,6 +8,7 @@ const ImagePage = () => {
   const [imageUrl, setImageUrl] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
+  
   const titel =
     location.state.charAt(0).toUpperCase() + location.state.substring(1);
 
