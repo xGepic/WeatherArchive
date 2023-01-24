@@ -4,9 +4,12 @@ import axios from "axios";
 import "./imageStyle.css";
 
 const ImagePage = () => {
+  const [imgMetaData, setImgMetaData] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
+  const titel =
+    location.state.charAt(0).toUpperCase() + location.state.substring(1);
 
   const goBackButton = () => {
     navigate("/");
@@ -24,6 +27,7 @@ const ImagePage = () => {
             "&Key=kHM0GgXPkb89BYpAkAwu69TX3wyhnQlK8EPww5Bp",
           config
         );
+        setImgMetaData(Object.keys(response.data));
         setImageUrl(
           `data:image/jpeg;base64,${response.data[Object.keys(response.data)]}`
         );
@@ -36,18 +40,21 @@ const ImagePage = () => {
 
   function RenderPage() {
     return (
-      <div>
-        <div id="titeldiv">
-          <h1 id="seachInput">{location.state}</h1>
+      <div id="wrapper">
+        <div id="titeldiv2">
+          <h1 id="seachInput">{titel}</h1>
         </div>
         <div>
           <button id="GoBackButton" onClick={goBackButton}>
             Go Back
           </button>
         </div>
-        <div>
+        <div id="imgDiv">
           <img src={imageUrl} alt="Lambda Img" />
-          <h1>Metadata:</h1>
+          <h3>
+            Metadata:<br></br>
+            {imgMetaData}
+          </h3>
         </div>
       </div>
     );
