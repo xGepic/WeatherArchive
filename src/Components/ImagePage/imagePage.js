@@ -13,14 +13,18 @@ const ImagePage = () => {
   };
 
   useEffect(() => {
-    const headers = { "Access-Control-Allow-Origin": "*" };
+    const config = {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
+    };
     async function fetchData() {
       try {
         const response = await axios.get(
           "https://937sshyksk.execute-api.us-east-1.amazonaws.com/Deploy/getimage?begin=2023-01-02%2019:00:00&end=2023-01-02%2020:00:00&loc=" +
             location.state +
             "&Key=kHM0GgXPkb89BYpAkAwu69TX3wyhnQlK8EPww5Bp",
-          headers
+          config
         );
         setImages(response.data.images);
       } catch (error) {
@@ -28,7 +32,7 @@ const ImagePage = () => {
       }
     }
     fetchData();
-  }, []);
+  });
 
   function RenderPage() {
     return (
