@@ -41,11 +41,14 @@ const LandingPage = () => {
 
   function RenderDates() {
     return (
-      <ul>
-        {dates.map((string, index) => (
-          <li key={index}>{string}</li>
-        ))}
-      </ul>
+      <div>
+        <h2>Available Dates:</h2>
+        <ul>
+          {dates.map((string, index) => (
+            <li key={index}>{string}</li>
+          ))}
+        </ul>
+      </div>
     );
   }
 
