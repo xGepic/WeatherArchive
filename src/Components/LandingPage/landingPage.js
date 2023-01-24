@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./style.css";
 
 const LandingPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [dates, setDates] = useState([]);
   const navigate = useNavigate();
 
   const toImageComponent = () => {
@@ -13,6 +15,39 @@ const LandingPage = () => {
     }
     navigate("/image", { state: searchTerm });
   };
+
+  function removeDuplicates(arr) {
+    return arr.filter((item, index) => arr.indexOf(item) === index);
+  }
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await axios.get(
+          "https://937sshyksk.execute-api.us-east-1.amazonaws.com/Deploy/getdates"
+        );
+        let resp = response.data.body.split(",");
+        const newDates = resp
+          .toString()
+          .replace(/"/g, "")
+          .replace("[", "")
+          .replace("]", "");
+        setDates(removeDuplicates(newDates.split(",")));
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchData();
+  });
+
+  function RenderDates() {
+    return (
+      <ul>
+        {dates.map((string, index) => (
+          <li key={index}>{string}</li>
+        ))}
+      </ul>
+    );
+  }
 
   function RenderPage() {
     return (
@@ -35,6 +70,7 @@ const LandingPage = () => {
               </button>
             </div>
           </div>
+          <div>{RenderDates()}</div>
           <div>
             <Link to="/video">
               <button id="videoPageButton">Video</button>
