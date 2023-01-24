@@ -4,7 +4,7 @@ import axios from "axios";
 import "./imageStyle.css";
 
 const ImagePage = () => {
-  const [images, setImages] = useState([]);
+  const [imageUrl, setImageUrl] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -14,9 +14,7 @@ const ImagePage = () => {
 
   useEffect(() => {
     const config = {
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-      },
+      headers: {},
     };
     async function fetchData() {
       try {
@@ -26,7 +24,9 @@ const ImagePage = () => {
             "&Key=kHM0GgXPkb89BYpAkAwu69TX3wyhnQlK8EPww5Bp",
           config
         );
-        setImages(response.data.images);
+        setImageUrl(
+          `data:image/jpeg;base64,${response.data[Object.keys(response.data)]}`
+        );
       } catch (error) {
         console.log(error);
       }
@@ -46,13 +46,8 @@ const ImagePage = () => {
           </button>
         </div>
         <div>
-          {images.map((image) => (
-            <img
-              key={image.id}
-              src={`data:image/png;base64,${image.data}`}
-              alt={image.name}
-            />
-          ))}
+          <img src={imageUrl} alt="Lambda Img" />
+          <h1>Metadata:</h1>
         </div>
       </div>
     );
