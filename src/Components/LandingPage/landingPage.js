@@ -43,7 +43,7 @@ const LandingPage = () => {
     return (
       <div>
         <h2>Available Dates:</h2>
-        <ul>
+        <ul id="dateDiv">
           {dates.map((string, index) => (
             <li key={index}>{string}</li>
           ))}
