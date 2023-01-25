@@ -6,6 +6,7 @@ import "./videoResultsStyle.css";
 const VideoResultsPage = () => {
   const [imgMetaData, setImgMetaData] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [myError, setMyError] = useState();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -28,6 +29,9 @@ const VideoResultsPage = () => {
             "&Key=kHM0GgXPkb89BYpAkAwu69TX3wyhnQlK8EPww5Bp",
           config
         );
+        Object.keys(response.data).length === 0
+          ? setMyError(true)
+          : setMyError(false);
         setImgMetaData(Object.keys(response.data));
         setImageUrl(
           `data:image/jpeg;base64,${response.data[Object.keys(response.data)]}`
@@ -38,6 +42,20 @@ const VideoResultsPage = () => {
     }
     fetchData();
   });
+
+  function HandleVideo() {
+    return myError ? (
+      <h2>Invalid Lambda Call </h2>
+    ) : (
+      <div id="imgDiv">
+        <img src={imageUrl} alt="Lambda Img" />
+        <h3>
+          Metadata:<br></br>
+          {imgMetaData}
+        </h3>
+      </div>
+    );
+  }
 
   function RenderPage() {
     return (
@@ -50,13 +68,7 @@ const VideoResultsPage = () => {
             Go Back
           </button>
         </div>
-        <div id="imgDiv">
-          <img src={imageUrl} alt="Lambda Img" />
-          <h3>
-            Metadata:<br></br>
-            {imgMetaData}
-          </h3>
-        </div>
+        {HandleVideo()}
       </div>
     );
   }

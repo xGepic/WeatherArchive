@@ -45,7 +45,7 @@ const ImagePage = () => {
 
   function HandleImage() {
     return myError ? (
-      <h2>Invalid Call </h2>
+      <h2>Invalid Lambda Call </h2>
     ) : (
       <div id="imgDiv">
         <img src={imageUrl} alt="Lambda Img" />
