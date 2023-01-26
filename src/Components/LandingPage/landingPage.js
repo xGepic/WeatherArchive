@@ -57,6 +57,7 @@ const LandingPage = () => {
       <div>
         <div id="titeldiv">
           <h1 id="titel">Weather Archive</h1>
+          <h4>Type in a Date or Location</h4>
         </div>
         <div id="wrapper">
           <div id="searchBarDiv">
