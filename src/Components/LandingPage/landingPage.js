@@ -13,7 +13,15 @@ const LandingPage = () => {
       alert("Please enter a Search Term!");
       return;
     }
-    navigate("/image", { state: searchTerm });
+    if (searchTerm.includes("-")) {
+      const loc = prompt("Please Enter a Location (Format: 2023-01-02)");
+      if (loc.trim.length === 0) return;
+      navigate("/image", { state: { dat: searchTerm, loc: loc } });
+    } else {
+      const dat = prompt("Please Enter a Date");
+      if (dat.trim.length === 0) return;
+      navigate("/image", { state: { dat: dat, loc: searchTerm } });
+    }
   };
 
   function removeDuplicates(arr) {

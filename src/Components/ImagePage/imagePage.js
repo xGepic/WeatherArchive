@@ -11,7 +11,8 @@ const ImagePage = () => {
   const navigate = useNavigate();
 
   const titel =
-    location.state.charAt(0).toUpperCase() + location.state.substring(1);
+    location.state.loc.charAt(0).toUpperCase() +
+    location.state.loc.substring(1);
 
   const goBackButton = () => {
     navigate("/");
@@ -25,7 +26,7 @@ const ImagePage = () => {
       try {
         const response = await axios.get(
           "https://937sshyksk.execute-api.us-east-1.amazonaws.com/Deploy/getimage?begin=2023-01-02%2019:00:00&end=2023-01-02%2020:00:00&loc=" +
-            location.state +
+            location.state.loc +
             "&Key=kHM0GgXPkb89BYpAkAwu69TX3wyhnQlK8EPww5Bp",
           config
         );
