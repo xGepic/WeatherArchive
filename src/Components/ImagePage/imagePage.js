@@ -14,6 +14,8 @@ const ImagePage = () => {
     location.state.loc.charAt(0).toUpperCase() +
     location.state.loc.substring(1);
 
+  const date = location.state.dat;
+
   const goBackButton = () => {
     navigate("/");
   };
