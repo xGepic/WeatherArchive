@@ -14,7 +14,8 @@ const ImagePage = () => {
     location.state.loc.charAt(0).toUpperCase() +
     location.state.loc.substring(1);
 
-  const date = location.state.dat;
+  const startDate = location.state.dat + "%2000:00:00";
+  const endDate = location.state.dat + " %2023:59:00";
 
   const goBackButton = () => {
     navigate("/");
@@ -27,7 +28,11 @@ const ImagePage = () => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          "https://937sshyksk.execute-api.us-east-1.amazonaws.com/Deploy/getimage?begin=2023-01-02%2019:00:00&end=2023-01-02%2020:00:00&loc=" +
+          "https://937sshyksk.execute-api.us-east-1.amazonaws.com/Deploy/getimage?begin=" +
+            startDate +
+            "&end=" +
+            endDate +
+            "&loc=" +
             location.state.loc +
             "&Key=kHM0GgXPkb89BYpAkAwu69TX3wyhnQlK8EPww5Bp",
           config
